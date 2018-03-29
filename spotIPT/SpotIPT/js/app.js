@@ -8,8 +8,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (xhr.status == 200) {
             //input que seleciona os cds
-            var bt = document.createElement('input');
-            document.body.appendChild(bt);
+
+            var bt = document.createElement('input');   
+           document.body.appendChild(bt);
+    
             //break line
             var brs = document.createElement('br');
             document.body.appendChild(brs);
@@ -21,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
                  bt.addEventListener('input', function (evt) {
                      var cdInput = evt.srcElement.value;
                      var getVar = document.getElementsByTagName('div');
+                  
                      //remove o div onde contem todos os albuns
                      getVar[1].remove();
                      //volta para selecionar novos Cds
@@ -45,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
  
         }
         //div conteirner onde contem todos os albuns
+
         var conteiner = document.createElement('div');
         document.body.appendChild(conteiner);
         conteiner.className = 'albunsContainer';
@@ -82,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     let node = document.createElement('p');
                     var autor = itemCD.attributes[1].textContent;
                     node.textContent = 'Autor: ' + autor;
-                    infoCds.appendChild(node);
+                 //   infoCds.appendChild(node);
 
                     //-----------------data--------------------
                     var datas = itemCD.getElementsByTagName('data');
@@ -97,20 +101,20 @@ document.addEventListener('DOMContentLoaded', function () {
                         var dia = item.getAttribute('dia');
 
                         nodeData.textContent = ano+'-'+mes+'-'+dia;
-                        infoCds.appendChild(nodeData);
+                    //    infoCds.appendChild(nodeData);
                     });
                     //-------------editora---------------------
                     var nodeEdit = document.createElement('p');
                     var editor = itemCD.attributes[2].textContent;
                     nodeEdit.textContent = 'Editora: '+ editor;
-            infoCds.appendChild(nodeEdit);
+                    //infoCds.appendChild(nodeEdit);
 
             //--------------faixas----------------------    
             let btFaixa = document.createElement('input');
-            alb.appendChild(btFaixa);
+            //alb.appendChild(btFaixa);
             //div que contem todas as faixas
             var nodeFaixas = document.createElement('div');
-            alb.appendChild(nodeFaixas);
+            //alb.appendChild(nodeFaixas);
             nodeFaixas.className = 'Faixas'      
             //funcao responsavel por gerar as faixas
             getFaixa(itemCD, nodeFaixas, btFaixa);
@@ -158,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     let nodeFaixas = document.createElement('li');
                     var showFaixa = itemLista.attributes[1].textContent;
                     nodeFaixas.textContent = showFaixa;
-                    boxFaixas.appendChild(nodeFaixas);
+                  //  boxFaixas.appendChild(nodeFaixas);
 
                 });
 

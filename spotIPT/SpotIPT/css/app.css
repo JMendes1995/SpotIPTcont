@@ -1,15 +1,25 @@
-﻿.grid-container {
-    display: grid;
-    grid-gap: 50px;
-    grid-template-columns: auto auto auto;
-    background-color:tomato;
-    padding: 10px;
+﻿body {
+    background-color: brown;
 }
 
-.grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
+.albunsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    width: 800px;
+}
+.album{
+
+    width:200px;
+}
+.searchBar{
+    background-color:gray;
+}
+.divSearch{
+    display: flex;
+    position: sticky;
+    background-color: black;
+    height:50px;
+    opacity: 80;
 }
