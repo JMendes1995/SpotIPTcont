@@ -8,28 +8,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (xhr.status == 200) {
             //input que seleciona os cds
-
-            var bt = document.createElement('input');   
-           document.body.appendChild(bt);
+            var divInput = document.createElement('div');
+            document.body.appendChild(divInput);
+            divInput.className = 'divInput';
+            var bt = document.createElement('input');  
+            bt.className = 'searchBar';
+            divInput.appendChild(bt);
     
             //break line
             var brs = document.createElement('br');
             document.body.appendChild(brs);
+            var getInp = document.getElementById('ss');
 
             var discotecaData = xhr.responseXML.documentElement;
-
+          
                 selectCD("", discotecaData);
 
-                 bt.addEventListener('input', function (evt) {
-                     var cdInput = evt.srcElement.value;
-                     var getVar = document.getElementsByTagName('div');
-                  
+          
+            bt.addEventListener('input', function (evt) {
+                var cdInput = evt.srcElement.value;
+                var gett = document.getElementById('contMaster');          
                      //remove o div onde contem todos os albuns
-                     getVar[1].remove();
+                     gett.remove();
                      //volta para selecionar novos Cds
                      selectCD(cdInput, discotecaData);
                 });
-
+            
         }
     }
     xhr.onerror = function (e) {
@@ -48,9 +52,12 @@ document.addEventListener('DOMContentLoaded', function () {
  
         }
         //div conteirner onde contem todos os albuns
-
+        var conteinerMaster = document.createElement('div');
+        document.body.appendChild(conteinerMaster);
+        conteinerMaster.id = 'contMaster';
         var conteiner = document.createElement('div');
-        document.body.appendChild(conteiner);
+        conteinerMaster.appendChild(conteiner);
+
         conteiner.className = 'albunsContainer';
 
         albuns = Array.from(albuns);
@@ -72,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     capas.forEach((itemCapa) => {
                         var imgNode = document.createElement('img');
+                        imgNode.className = 'imgNode';
                         var img = itemCapa.attributes[0].textContent;
                         imgNode.setAttribute('src', '/assets/images/' + img);
                         infoCds.appendChild(imgNode);
